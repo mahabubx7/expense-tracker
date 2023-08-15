@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ .links_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px auto;
+ }
+
+ .links_group a {
+  display: block;
+  margin: 0.25rem auto;
+ }

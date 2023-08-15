@@ -40,3 +40,6 @@
 *.env*
 !.env.sample
 !.env.example
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
