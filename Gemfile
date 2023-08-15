@@ -72,3 +72,7 @@ group :test do
 end
 
 gem "pg", "~> 1.5"
+
+gem "rubocop", "~> 1.56"
+gem "devise", "~> 4.9"
+gem "cancancan", "~> 3.5"
