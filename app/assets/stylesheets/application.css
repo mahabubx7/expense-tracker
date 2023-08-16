@@ -22,54 +22,29 @@
 }
 
 .messages {
-  display: flex;
-  position: fixed;
-  bottom: 100px;
+  position: absolute;
+  top: 65px;
   left: 0;
   width: 100%;
-  min-height: 0;
-  background-color: #5fb523;
   color: white;
   padding: 0;
-  z-index: -1;
+  transition: all 0.2s;
 }
 
-.messages p {
-  display: block;
+.messages > p,
+.messages > p.alert,
+.messages > p.notice {
   width: 100%;
+  background-color: rgba(95, 181, 35, 0.75);
   text-transform: capitalize;
-  padding: 0.35rem;
+  padding: 0.3rem;
+  font-size: 0.9rem;
   text-align: center;
   transition: all 0.2s;
-  animation: auto_close 10s forwards;
+  z-index: 9999;
 }
 
 .links_group a {
   display: block;
   margin: 0.25rem auto;
-}
-
-@keyframes auto_close {
-  0% {
-    opacity: 1;
-    min-height: 0;
-  }
-
-  1% {
-    min-height: 32px;
-    z-index: 999;
-  }
-
-  99% {
-    opacity: 0.99;
-    min-height: 32px;
-  }
-
-  100% {
-    opacity: 0;
-    min-height: 0;
-    height: 0;
-    visibility: hidden;
-    z-index: -1;
-  }
 }
