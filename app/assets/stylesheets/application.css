@@ -22,26 +22,35 @@
 }
 
 .messages {
-  display: flex;
+  display: none;
   position: fixed;
-  bottom: 100px;
+  top: 80px;
   left: 0;
   width: 100%;
   min-height: 0;
-  background-color: #5fb523;
   color: white;
   padding: 0;
   z-index: -1;
+  visibility: hidden;
+  height: 0;
+  animation: auto_hide 10s linear;
+  transition: all 0.2s;
 }
 
-.messages p {
-  display: block;
+.messages > p,
+.messages > p.alert,
+.messages > p.notice {
+  display: none;
   width: 100%;
+  background-color: #5fb523;
   text-transform: capitalize;
   padding: 0.35rem;
   text-align: center;
+  z-index: -1;
+  visibility: hidden;
+  height: 0;
+  animation: auto_hide 10s linear;
   transition: all 0.2s;
-  animation: auto_close 10s forwards;
 }
 
 .links_group a {
@@ -49,27 +58,22 @@
   margin: 0.25rem auto;
 }
 
-@keyframes auto_close {
+@keyframes auto_hide {
   0% {
-    opacity: 1;
-    min-height: 0;
-  }
-
-  1% {
-    min-height: 32px;
-    z-index: 999;
+    display: flex;
+    visibility: visible;
+    height: auto;
+    z-index: 9999;
   }
 
   99% {
-    opacity: 0.99;
-    min-height: 32px;
+    z-index: 9999;
   }
 
   100% {
-    opacity: 0;
-    min-height: 0;
-    height: 0;
+    display: none;
     visibility: hidden;
+    height: 0;
     z-index: -1;
   }
 }
