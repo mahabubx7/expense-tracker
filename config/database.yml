@@ -8,28 +8,23 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   encoding: unicode
-  timeout: 5000
-
-development:
-  <<: *default
-  database: ewallet_dev
   host: <%= ENV["DB_HOST"] %>
   username: <%= ENV["DB_USER"] %>
   password: <%= ENV["DB_PASS"] %>
   port: <%= ENV["DB_PORT"] %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: expense_tracker_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ewallet_test
-  host: <%= ENV["DB_HOST"] %>
-  username: <%= ENV["DB_USER"] %>
-  password: <%= ENV["DB_PASS"] %>
-  port: <%= ENV["DB_PORT"] %>
+  database: expense_tracker_test
 
 production:
   <<: *default
-  # database: expense_tracker_prod
-  url: <%= ENV['DATABASE_URL'] %>
+  database: expense_tracker_prod
