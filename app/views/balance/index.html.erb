@@ -1,7 +1,7 @@
 <div class="flex flex-col">
 
-<div class="bg-[#3778c2] py-4 w-screen flex items-center">
-  <div class="flex justify-around items-center w-screen text-white">
+<div class="bg-[#3778c2] py-4 w-screen flex items-center px-2">
+  <div class="flex justify-between items-center w-screen text-white">
             <svg viewBox="0 0 100 80" width="32" height="32" fill="white">
               <rect width="100" height="10"></rect>
               <rect y="30" width="100" height="10"></rect>
@@ -18,14 +18,14 @@
 
 <ul class="w-screen p-3">
 <% @balances.each do |balance| %>
-<%= link_to "/balances/#{balance.id}" do %>
+<%= link_to "/balance/#{balance.id}" do %>
     <li class=" bg-white flex  justify-around items-center p-3 mb-3">
-    <img class="h-16 w-16" src=<%= balance.icon %> alt=<%= balance.name %> >
+    <img class="h-16 w-16" src="<%= balance.icon %>" alt="<%= balance.name %>" >
     <div class=" text-gray-400 text-left flex-1 px-4  flex flex-col justify-between gap-1">
     <p class="text-bold text-lg"><%= balance.name.capitalize %> <p>
     <p><%= balance.created_at.strftime('%d-%b-%Y') %> <p>
     </div>
-    <p class="text-bold text-xl">$<%= balance.items.map { |item| item.amount }.sum %></p>
+     <p class="text-bold text-xl">$<%= balance.total_amount %></p>
     </li>
 <%end%>
 <% end %>
@@ -33,6 +33,6 @@
 </div>
 <div class="fixed bottom-0 right-0 left-0 bg-[#5fb523] w-full min-h-[32px] flex justify-center items-center p-3">
   <span class="text-xl flex justify-center items-center border-2 border-white w-[98%] h-[90%] py-2 mx-auto text-white cursor-pointer uppercase rounded-md">
-    <%= link_to 'scan', new_balance_path %>
+    <%= link_to 'new', new_balance_path %>
   </span>
 </div>

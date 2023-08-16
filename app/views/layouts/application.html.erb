@@ -13,8 +13,13 @@
 
   <body>
     <div class="messages">
-      <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
     </div>
     <%= yield %>
   </body>

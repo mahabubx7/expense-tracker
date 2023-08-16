@@ -1,0 +1,37 @@
+<div class="flex flex-col">
+
+<div class="bg-[#3778c2] py-4 w-screen flex items-center justify-between px-2">
+        <div class="flex justify-between items-center w-screen text-white">
+            <a href="/" class="text-2xl inline-block">&larr;</a>
+            <h1 class="text-2xl">New Group</h1>
+            <svg class="feather feather-search" fill="none" height="32" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+            width="32" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/>
+            </svg>
+        </div>
+
+</div>
+
+<% if @balance.errors.any? %>
+  <div class="text-red-500 text-center">
+    <p><%= pluralize(@balance.errors.count, "error") %> found:</p>
+
+    <ul class="text-bold">
+      <% @balance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @balance, url: "/balance",  method: :post do | form |%>
+<div class="flex flex-col w-screen pt-3 gap-0">
+<%= form.text_field :name, class: "block pl-3 text-lg w-full border-1 border-gray-100", placeholder: 'Name', required: true%>
+
+<%= form.text_field :icon, class: "block pl-3 text-lg w-full border-1 border-gray-100", placeholder: 'icon URL', required: true %>
+<span class="pt-4 mx-auto font-semibold text-xl"><%= form.submit 'Save'%></span>
+</div>
+<% end %>
+
+</div>
