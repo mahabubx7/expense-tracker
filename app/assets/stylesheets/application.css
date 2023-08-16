@@ -22,58 +22,29 @@
 }
 
 .messages {
-  display: none;
-  position: fixed;
-  top: 80px;
+  position: absolute;
+  top: 65px;
   left: 0;
   width: 100%;
-  min-height: 0;
   color: white;
   padding: 0;
-  z-index: -1;
-  visibility: hidden;
-  height: 0;
-  animation: auto_hide 10s linear;
   transition: all 0.2s;
 }
 
 .messages > p,
 .messages > p.alert,
 .messages > p.notice {
-  display: none;
   width: 100%;
-  background-color: #5fb523;
+  background-color: rgba(95, 181, 35, 0.75);
   text-transform: capitalize;
-  padding: 0.35rem;
+  padding: 0.3rem;
+  font-size: 0.9rem;
   text-align: center;
-  z-index: -1;
-  visibility: hidden;
-  height: 0;
-  animation: auto_hide 10s linear;
   transition: all 0.2s;
+  z-index: 9999;
 }
 
 .links_group a {
   display: block;
   margin: 0.25rem auto;
-}
-
-@keyframes auto_hide {
-  0% {
-    display: flex;
-    visibility: visible;
-    height: auto;
-    z-index: 9999;
-  }
-
-  99% {
-    z-index: 9999;
-  }
-
-  100% {
-    display: none;
-    visibility: hidden;
-    height: 0;
-    z-index: -1;
-  }
 }

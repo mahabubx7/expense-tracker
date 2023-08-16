@@ -16,7 +16,7 @@ class ItemController < ApplicationController
 
     if params[:item][:selected_ids]
       if save_item_and_balance_item
-        redirect_to balance_path(params[:balance_id])
+        redirect_to balance_path(params[:balance_id]), notice: 'Added new expense item'
       else
         render :new, status: :unprocessable_entity
       end

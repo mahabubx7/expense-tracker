@@ -21,7 +21,7 @@ class BalanceController < ApplicationController
     @balance = Balance.new(balance_params)
     @balance.author = current_user
     if @balance.save
-      redirect_to root_path, notice: 'Balance was successfully created'
+      redirect_to root_path, notice: 'Added new expense group'
     else
       render :new, status: :unprocessable_entity, notice: 'An error has occurred while creating'
     end
