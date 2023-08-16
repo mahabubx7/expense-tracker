@@ -1,38 +1,39 @@
-<div class="flex flex-col">
+<div class="flex flex-col bg-gray-100 min-h-screen">
 
-<div class="bg-[#3778c2] py-4 w-screen flex items-center px-2">
-  <div class="flex justify-between items-center w-screen text-white">
-            <svg viewBox="0 0 100 80" width="32" height="32" fill="white">
-              <rect width="100" height="10"></rect>
-              <rect y="30" width="100" height="10"></rect>
-              <rect y="60" width="100" height="10"></rect>
-            </svg>
-            <h1 class="text-2xl">Transactions</h1>
-            <svg class="feather feather-search" fill="none" height="32" stroke="currentColor"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-            width="32" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/>
-            </svg>
-        </div>
-</div>
-
-<ul class="w-screen p-3">
-<% @balances.each do |balance| %>
-<%= link_to "/balance/#{balance.id}" do %>
-    <li class=" bg-white flex  justify-around items-center p-3 mb-3">
-    <img class="h-16 w-16" src="<%= balance.icon %>" alt="<%= balance.name %>" >
-    <div class=" text-gray-400 text-left flex-1 px-4  flex flex-col justify-between gap-1">
-    <p class="text-bold text-lg"><%= balance.name.capitalize %> <p>
-    <p><%= balance.created_at.strftime('%d-%b-%Y') %> <p>
+  <div class="bg-[#3778c2] py-4 w-screen flex items-center px-2">
+    <div class="flex justify-between items-center w-screen text-white">
+              <svg viewBox="0 0 100 80" width="32" height="32" fill="white">
+                <rect width="100" height="10"></rect>
+                <rect y="30" width="100" height="10"></rect>
+                <rect y="60" width="100" height="10"></rect>
+              </svg>
+              <h1 class="text-2xl">Transactions</h1>
+              <svg class="feather feather-search" fill="none" height="32" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+              width="32" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/>
+              </svg>
     </div>
-     <p class="text-bold text-xl">$<%= balance.total_amount %></p>
-    </li>
-<%end%>
-<% end %>
-</ul>
+  </div>
+
+  <ul class="w-screen p-3 mt-2">
+  <% @balances.each do |balance| %>
+    <%= link_to "/balance/#{balance.id}" do %>
+        <li class="bg-white flex justify-around items-center p-3 mb-3 rounded-md drop-shadow-sm">
+          <img class="h-16 w-16" src="<%= balance.icon %>" alt="<%= balance.name %>" >
+          <div class=" text-gray-500 text-left flex-1 px-4  flex flex-col justify-between gap-1">
+            <p class="text-bold text-lg"><%= balance.name.capitalize %> <p>
+            <p><%= balance.created_at.strftime('%d-%b-%Y') %> <p>
+          </div>
+          <p class="text-bold text-xl">$<%= balance.total_amount %></p>
+        </li>
+    <%end%>
+  <% end %>
+  </ul>
 </div>
+
 <div class="fixed bottom-0 right-0 left-0 bg-[#5fb523] w-full min-h-[32px] flex justify-center items-center p-3">
   <span class="text-xl flex justify-center items-center border-2 border-white w-[98%] h-[90%] py-2 mx-auto text-white cursor-pointer uppercase rounded-md">
-    <%= link_to 'new', new_balance_path %>
+    <%= link_to 'add group', new_balance_path %>
   </span>
 </div>
