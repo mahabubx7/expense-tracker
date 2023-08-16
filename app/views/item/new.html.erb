@@ -25,10 +25,10 @@
 <% end %>
 
 <%= form_with model: @item, url: balance_item_index_path,  method: :post do | form |%>
-<div class="flex flex-col w-screen pt-3 gap-1">
-<%= form.text_field :name, placeholder: 'Name', required: true%>
+<div class="flex flex-col w-screen pt-3 gap-0">
+<%= form.text_field :name, class: "block pl-3 text-lg w-full border-1 border-gray-100", placeholder: 'Name', required: true %>
 
-<%= form.number_field :amount, placeholder: 'Amount', required: true%>
+<%= form.number_field :amount, class: "block pl-3 text-lg w-full border-1 border-gray-100", placeholder: 'Amount', required: true %>
 
 <div class="p-4 w-screen bg-white">
 <p> Choose One or More Balance Sheets to Add This Item</p>
@@ -43,7 +43,7 @@
   <% end %>
    </div>
 </div>
-<span class="pt-6 mx-auto"><%= form.submit "Save"%></span>
+<span class="pt-4 mx-auto font-semibold text-xl"><%= form.submit "Save"%></span>
 </div>
 <% end %>
 
