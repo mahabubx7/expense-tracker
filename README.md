@@ -61,7 +61,10 @@ This RoR application is deployed in `Render` free web-service and connected to a
 
 ## Video Presentation <a name="video"></a>
 
--[Presentation Video](https://www.loom.com/)
+**[Video link (click here)](https://youtu.be/CGmWbmF8PiU)**
+
+[<img src="https://img.youtube.com/vi/CGmWbmF8PiU/hqdefault.jpg" width="534" height="326"
+/>](https://www.youtube.com/embed/CGmWbmF8PiU)
 
 <!-- GETTING STARTED -->
 
